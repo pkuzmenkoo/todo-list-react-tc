@@ -15,6 +15,12 @@ const schema = buildSchema(`
         isDone: Boolean!
     }
 
+    input TodoChangeInput {
+        id: ID!
+        title: String!
+        isDone: Boolean!
+    }
+
     type Query {
         getAllTodos: [Todo]
         getTodo(id: ID): Todo
@@ -22,6 +28,8 @@ const schema = buildSchema(`
 
     type Mutation {
         createTodo(input: TodoInput): Todo
+        deleteTodo(id: ID): String
+        updateTodo(input: TodoChangeInput): Todo
     }
 
     `)

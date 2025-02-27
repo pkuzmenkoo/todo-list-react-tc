@@ -1,14 +1,16 @@
 import './App.css'
-import Todo from './components/TodoList'
-import Button from '@mui/material/Button'
+import TodoList from './components/TodoList';
+import NewTodoForm from './components/NewTodoForm'
+import { Routes, Route,} from 'react-router'
+import ChangeTodoForm from './components/ChangeTodoForm'
 
-const App = () =>  {
+const App = () => {
 	return (
-		<div>
-			<h2>My first Apollo app 🚀</h2>
-			<Todo />
-			<Button variant='contained'>Hello world</Button>
-		</div>
+		<Routes>
+			<Route path='/' element={<TodoList />}></Route>
+			<Route path='/createTodo' element={<NewTodoForm />}></Route>
+			<Route path='/updateTodo/:todoId' element={<ChangeTodoForm />}></Route>
+		</Routes>
 	)
 }
 
